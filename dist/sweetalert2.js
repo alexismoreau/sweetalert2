@@ -2,6 +2,7 @@
  * sweetalert2 v6.6.9
  * Released under the MIT License.
  */
+if(Meteor.isClient) {
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -1683,3 +1684,4 @@ return sweetAlert;
 
 })));
 if (window.Sweetalert2) window.sweetAlert = window.swal = window.Sweetalert2;
+}
