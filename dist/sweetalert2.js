@@ -56,6 +56,7 @@ var defaultParams = {
   progressStepsDistance: '40px',
   onOpen: null,
   onClose: null,
+  outputHTML: '',
   useRejections: true
 };
 
@@ -163,12 +164,12 @@ var states = {
 
   range.oninput = function () {
     sweetAlert.resetValidationError();
-    rangeOutput.value = range.value;
+    rangeOutput.value = range.value + ' ' + params.outputHTML;
   };
 
   range.onchange = function () {
     sweetAlert.resetValidationError();
-    range.previousSibling.value = range.value;
+    range.previousSibling.value = range.value + ' ' + params.outputHTML;
   };
 
   select.onchange = function () {
@@ -1379,7 +1380,7 @@ var sweetAlert = function sweetAlert() {
         var rangeOutput = range.querySelector('output');
         rangeInput.value = params.inputValue;
         rangeInput.type = params.input;
-        rangeOutput.value = params.inputValue;
+        rangeOutput.value = params.inputValue + ' ' + params.outputHTML;
         show(range);
         break;
       case 'select':
